@@ -1,0 +1,350 @@
+@font-face {
+  font-family: 'Brookshire';
+  src: url('../font/EFCO Brookshire Regular.ttf') format('truetype');
+}
+
+.owned-content {
+  position: relative;
+  left: 250px;
+  width: calc(100% - 250px);
+  min-height: 100vh;
+  background: var(--body-color);
+  transition: var(--trans-05);
+  padding: 40px;
+}
+
+.sidebar.close ~ .owned-content {
+  left: 88px;
+  width: calc(100% - 88px);
+}
+
+.owned-header {
+  text-align: center;
+  margin-bottom: 50px;
+  padding: 20px 0;
+}
+
+.owned-header h1 {
+  font-family: 'Brookshire', sans-serif;
+  font-size: 3rem;
+  color: var(--primary-color);
+  margin-bottom: 15px;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.owned-header p {
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.1rem;
+  color: var(--text-color);
+  opacity: 0.8;
+  max-width: 500px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.owned-stats {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin-top: 25px;
+}
+
+.stat-item {
+  text-align: center;
+  padding: 15px 25px;
+  background: var(--sidebar-color);
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+.stat-number {
+  display: block;
+  font-family: 'Poppins', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.85rem;
+  color: var(--text-color);
+  opacity: 0.8;
+}
+
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 25px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.owned-card {
+  background: var(--body-color);
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.08);
+  text-align: center;
+  transition: var(--trans-04);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.owned-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.15);
+}
+
+.owned-cover {
+  width: 120px;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin: 0 auto 15px auto;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  transition: var(--trans-03);
+  cursor: pointer;
+}
+
+.owned-card:hover .owned-cover {
+  transform: scale(1.05);
+}
+
+.book-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.free-badge {
+  background: #4CAF50;
+}
+
+.premium-badge {
+  background: #FF9800;
+}
+
+.owned-title {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--text-color);
+  margin-bottom: 8px;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  min-height: 2.6em;
+}
+
+.owned-author {
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  color: var(--primary-color-light);
+  margin-bottom: 15px;
+  opacity: 0.9;
+  min-height: 1.2em;
+}
+
+.owned-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: auto;
+  align-items: center;
+}
+
+.read-btn {
+  flex: 1;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.8rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--trans-03);
+  background: var(--primary-color);
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.read-btn:hover {
+  background: var(--primary-color-light);
+  transform: translateY(-2px);
+}
+
+.favorite-toggle {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.4rem;
+  color: var(--primary-color-light);
+  transition: var(--trans-03);
+  padding: 8px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.favorite-toggle:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.1);
+}
+
+.favorite-toggle.favorited {
+  color: var(--primary-color);
+}
+
+.favorite-toggle.favorited:hover {
+  background: rgba(0, 0, 0, 0.05);
+  transform: scale(1.1);
+}
+
+.empty-state {
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  opacity: 0.7;
+  grid-column: 1 / -1;
+  padding: 60px 20px;
+}
+
+.empty-state i {
+  font-size: 4rem;
+  color: var(--primary-color-light);
+  margin-bottom: 20px;
+  opacity: 0.5;
+}
+
+.empty-state h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: var(--text-color);
+}
+
+.empty-state p {
+  font-size: 1rem;
+  margin-bottom: 25px;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.empty-actions {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.explore-btn {
+  padding: 12px 25px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--trans-03);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.explore-btn.secondary {
+  background: transparent;
+  border: 2px solid var(--primary-color);
+  color: var(--primary-color);
+}
+
+.explore-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Dark mode styles */
+body.dark .owned-card {
+  background: var(--sidebar-color);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .stat-item {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.dark .favorite-toggle:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .owned-content {
+    left: 0;
+    width: 100%;
+    padding: 20px;
+  }
+  
+  .sidebar.close ~ .owned-content {
+    left: 0;
+    width: 100%;
+  }
+  
+  .owned-header h1 {
+    font-size: 2.2rem;
+  }
+  
+  .books-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: 15px;
+  }
+  
+  .owned-stats {
+    flex-direction: column;
+    gap: 15px;
+    max-width: 200px;
+    margin: 25px auto;
+  }
+  
+  .empty-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .explore-btn {
+    width: 200px;
+    text-align: center;
+  }
+}
+
+/* Animation for new books */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.owned-card {
+  animation: fadeInUp 0.5s ease-out;
+}

@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Shop - Athena</title>
+    
+    <link rel="stylesheet" href="css/athena.css">
+    <link rel="stylesheet" href="css/shop.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="icon" type="image/png" href="Logo/topIcon.png">
+</head>
+<body>
+
+    <nav class="sidebar close">
+        <header>
+            <div class="image-text">
+                <span class="image">
+                    <img src="logo/sidebarLogo.png" alt="Logo">
+                </span>
+                <div class="text header-text">
+                    <span class="name">Athena</span>
+                </div>
+            </div>
+            <i class='bx bx-chevron-right toggle'></i> 
+        </header>
+
+        <div class="menu-bar">
+            <div class="menu">
+                <li class="search-box">
+                    <a href="#">
+                        <i class='bx bx-search icon'></i> 
+                        <input type="text" placeholder="Search...">
+                    </a>
+                </li>
+                <ul class="menu-links">
+                    <li class="nav-link">
+                        <a href="athena.html">
+                            <i class='bx bx-home-alt-2 icon'></i> 
+                            <span class="text nav-text">Home</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="reco.html">
+                            <i class='bx bx-book-open icon'></i> 
+                            <span class="text nav-text">Reco's</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="favorites.html">
+                            <i class='bx bx-heart icon'></i> 
+                            <span class="text nav-text">Favorites</span>
+                        </a>
+                    </li>
+                    <li class="nav-link">
+                        <a href="about.html">
+                            <i class='bx bx-light-bulb icon'></i> 
+                            <span class="text nav-text">About</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            
+            <div class="bottom-content">
+                <li class="nav-link">
+                    <a href="account.html">
+                        <i class='bx bx-wink-smile icon'></i> 
+                        <span class="text nav-text">Account</span>
+                    </a>
+                </li>
+                
+                <li class="mode">
+                    <div class="moon-sun">
+                        <i class='bx bx-moon moon icon'></i> 
+                        <i class='bx bx-sun sun icon'></i>
+                    </div>
+                    <span class="mode-text text">Dark Mode</span>
+                    <div class="toggle-switch">
+                        <span class="switch"></span>
+                    </div>
+                </li>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Shop Content -->
+    <section class="shop-content">
+        <div class="shop-header">
+            <h1 class="highlight-title">Book Shop</h1>
+            <div class="user-stats">
+                <div class="exp-balance">
+                    <i class='bx bx-star'></i>
+                    <span id="user-exp">1,250</span> EXP
+                </div>
+                <div class="unlocked-books">
+                    <i class='bx bx-book'></i>
+                    <span id="unlocked-count">3</span> Books Unlocked
+                </div>
+            </div>
+        </div>
+
+        <!-- Shop Filters -->
+        <div class="shop-filters">
+            <div class="filter-group">
+                <button class="filter-btn active" data-filter="all">All Books</button>
+                <button class="filter-btn" data-filter="fiction">Fiction</button>
+                <button class="filter-btn" data-filter="non-fiction">Non-Fiction</button>
+                <button class="filter-btn" data-filter="self-help">Self-Help</button>
+                <button class="filter-btn" data-filter="philosophy">Philosophy</button>
+            </div>
+            <div class="sort-group">
+                <select id="sort-select">
+                    <option value="newest">Newest First</option>
+                    <option value="exp-low">EXP: Low to High</option>
+                    <option value="exp-high">EXP: High to Low</option>
+                    <option value="popular">Most Popular</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Books Grid -->
+        <div class="books-grid" id="books-grid">
+            <!-- Books will be dynamically loaded here -->
+        </div>
+
+        <!-- Loading State -->
+        <div class="loading-state" id="loading-state">
+            <div class="loading-spinner"></div>
+            <p>Loading books...</p>
+        </div>
+    </section>
+
+    <!-- Purchase Modal -->
+    <div class="modal" id="purchase-modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Purchase Book</h2>
+            <div class="purchase-details">
+                <img id="modal-book-cover" src="" alt="Book Cover">
+                <div class="purchase-info">
+                    <h3 id="modal-book-title"></h3>
+                    <p id="modal-book-author"></p>
+                    <div class="exp-cost">
+                        <i class='bx bx-star'></i>
+                        <span id="modal-book-exp"></span> EXP
+                    </div>
+                    <div class="user-balance">
+                        Your balance: <span id="modal-user-exp"></span> EXP
+                    </div>
+                </div>
+            </div>
+            <div class="purchase-actions">
+                <button class="btn-cancel">Cancel</button>
+                <button class="btn-purchase" id="confirm-purchase">Purchase</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/theme.js"></script>
+    <script src="js/shop.js"></script>
+</body>
+</html>

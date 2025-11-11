@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Favorites - Athena</title>
+
+  <!-- Shared Styles -->
+  <link rel="stylesheet" href="css/athena.css">
+  <link rel="stylesheet" href="css/favorites.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet'>
+
+  <link rel="icon" type="image/png" href="logo/topIcon.png">
+</head>
+<body>
+  <!-- Sidebar -->
+  <nav class="sidebar close">
+    <header>
+      <div class="image-text">
+        <span class="image"><img src="logo/sidebarLogo.png" alt="Logo"></span>
+        <div class="text header-text"><span class="name">Athena</span></div>
+      </div>
+      <i class='bx bx-chevron-right toggle'></i>
+    </header>
+
+    <div class="menu-bar">
+      <div class="menu">
+        <li class="search-box">
+          <a href="#"><i class='bx bx-search icon'></i><input type="text" placeholder="Search..."></a>
+        </li>
+        <ul class="menu-links">
+          <li class="nav-link"><a href="athena.html"><i class='bx bx-home-alt-2 icon'></i><span class="text nav-text">Home</span></a></li>
+          <li class="nav-link"><a href="shop.html"><i class='bx bx-shopping-bag icon'></i><span class="text nav-text">Book Shop</span></a></li>
+          <li class="nav-link"><a href="owned.html"><i class='bx bx-book-heart icon'></i><span class="text nav-text">Owned</span></a></li>
+          <li class="nav-link active"><a href="favorites.html"><i class='bx bx-heart icon'></i><span class="text nav-text">Favorites</span></a></li>
+          <li class="nav-link"><a href="about.html"><i class='bx bx-light-bulb icon'></i><span class="text nav-text">About</span></a></li>
+        </ul>
+      </div>
+
+      <div class="bottom-content">
+        <li class="nav-link"><a href="account.html"><i class='bx bx-wink-smile icon'></i><span class="text nav-text">Account</span></a></li>
+        <li class="mode">
+          <div class="moon-sun"><i class='bx bx-moon moon icon'></i><i class='bx bx-sun sun icon'></i></div>
+          <span class="mode-text text">Dark Mode</span>
+          <div class="toggle-switch"><span class="switch"></span></div>
+        </li>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Favorites Content -->
+  <section class="favorites-content">
+    <div class="favorites-header">
+      <h1 class="brookshire">Favorites</h1>
+      <p>Your saved books are shown below.</p>
+    </div>
+
+    <div id="favorites-grid" class="books-grid">
+      <p class="empty-state">No favorite books yet. Add some from the shop!</p>
+    </div>
+  </section>
+
+  <script src="js/theme.js"></script>
+  <script src="js/database.js"></script> <!-- Add this -->
+  <script src="js/utils.js"></script>
+  <script src="js/favorites.js"></script>
+  
+</body>
+</html>

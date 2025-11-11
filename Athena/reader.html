@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reading - Athena</title>
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.4.120/pdf.min.js"></script>
+    
+    <link rel="stylesheet" href="css/athena.css">
+    <link rel="stylesheet" href="css/reader.css">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href='https://cdn.boxicons.com/3.0.3/fonts/basic/boxicons.min.css' rel='stylesheet'>
+    
+    <link rel="icon" type="image/png" href="logo/topIcon.png">
+</head>
+<body>
+    <header class="reader-header">
+        <div class="reader-nav">
+            <button class="back-btn" onclick="goBack()">
+                <i class='bx bx-arrow-back'></i>
+                Back to Library
+            </button>
+            
+            <div class="book-info">
+                <h1 id="book-title" class="brookshire">Loading...</h1>
+                <p id="book-author"></p>
+            </div>
+            
+            <div class="reader-controls">
+                <button class="control-btn" id="toggle-sidebar" title="Table of Contents">
+                    <i class='bx bx-book-open'></i>
+                </button>
+                <button class="control-btn" id="toggle-theme" title="Toggle Theme">
+                    <i class='bx bx-moon'></i>
+                </button>
+                <button class="control-btn favorite-btn" id="favorite-btn" title="Add to Favorites">
+                    <i class='bx bx-heart'></i>
+                </button>
+            </div>
+        </div>
+        
+        <div class="reading-progress">
+            <div class="progress-bar">
+                <div class="progress-fill" id="progress-fill"></div>
+            </div>
+            <div class="progress-text">
+                <span id="current-page">1</span> of <span id="total-pages">--</span>
+            </div>
+        </div>
+    </header>
+
+
+    <div class="reader-container">
+        <aside class="reader-sidebar" id="reader-sidebar">
+            <div class="sidebar-header">
+                <h3>Table of Contents</h3>
+                <button class="close-sidebar" id="close-sidebar">
+                    <i class='bx bx-x'></i>
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <!-- Table of Contents -->
+                <div class="toc-section">
+                    <h4>Chapters</h4>
+                    <div class="toc-list" id="toc-list">
+                        <div class="toc-item">Loading table of contents...</div>
+                    </div>
+                </div>
+                
+                <div class="bookmarks-section">
+                    <div class="section-header">
+                        <h4>Bookmarks</h4>
+                        <button class="add-bookmark" id="add-bookmark">
+                            <i class='bx bx-bookmark-plus'></i>
+                        </button>
+                    </div>
+                    <div class="bookmarks-list" id="bookmarks-list">
+                        <div class="no-bookmarks">No bookmarks yet</div>
+                    </div>
+                </div>
+                
+                <div class="comprehension-section">
+                    <h4>Comprehension Check</h4>
+                    <div class="comprehension-status" id="comprehension-status">
+                        <p>Next check: After page 10</p>
+                        <button class="quiz-btn" id="start-quiz" disabled>Take Quiz</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <main class="pdf-viewer">
+            <div class="pdf-controls">
+                <button class="nav-btn" id="prev-page" disabled>
+                    <i class='bx bx-chevron-left'></i>
+                    Previous
+                </button>
+                
+                <div class="page-controls">
+                    <button class="zoom-btn" id="zoom-out" title="Zoom Out">
+                        <i class='bx bx-zoom-out'></i>
+                    </button>
+                    <span class="zoom-level" id="zoom-level">100%</span>
+                    <button class="zoom-btn" id="zoom-in" title="Zoom In">
+                        <i class='bx bx-zoom-in'></i>
+                    </button>
+                </div>
+                
+                <button class="nav-btn" id="next-page">
+                    Next
+                    <i class='bx bx-chevron-right'></i>
+                </button>
+            </div>
+
+            <div class="pdf-container">
+                <canvas id="pdf-canvas"></canvas>
+                <div class="loading-pdf" id="loading-pdf">
+                    <div class="loading-spinner"></div>
+                    <p>Loading book...</p>
+                </div>
+            </div>
+
+            <div class="mobile-controls">
+                <button class="mobile-nav-btn" id="mobile-prev">
+                    <i class='bx bx-chevron-left'></i>
+                </button>
+                <button class="mobile-nav-btn" id="mobile-next">
+                    <i class='bx bx-chevron-right'></i>
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <div class="quiz-modal" id="quiz-modal">
+        <div class="quiz-content">
+            <div class="quiz-header">
+                <h2>Comprehension Check</h2>
+                <span class="quiz-progress">Question <span id="current-question">1</span> of <span id="total-questions">5</span></span>
+            </div>
+            
+            <div class="quiz-body">
+                <div class="question" id="question-text">
+                    Loading question...
+                </div>
+                
+                <div class="options" id="options-container">
+                
+                </div>
+                
+                <div class="quiz-feedback" id="quiz-feedback">
+         
+                </div>
+            </div>
+            
+            <div class="quiz-footer">
+                <button class="quiz-btn secondary" id="close-quiz">Close</button>
+                <button class="quiz-btn primary" id="next-question" disabled>Next Question</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/utils.js"></script>
+    <script src="js/database.js"></script> 
+    <script src="js/reader.js"></script>
+
+</body>
+</html>
